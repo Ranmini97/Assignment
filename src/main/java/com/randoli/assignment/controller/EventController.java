@@ -1,15 +1,20 @@
 package com.randoli.assignment.controller;
 
+import com.randoli.assignment.dto.EventDTO;
+import com.randoli.assignment.service.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "api/event")
 @CrossOrigin
 public class EventController {
+    @Autowired
+    private EventService eventService;
 
     @PostMapping("/saveEvent") //Create
-    public String saveEvent(){
-        return "event saved - Created";
+    public EventDTO saveEvent(@RequestBody EventDTO eventDTO){
+        return eventService.saveEvent(eventDTO);
     }
 
     @GetMapping("/getEvent") //Read
