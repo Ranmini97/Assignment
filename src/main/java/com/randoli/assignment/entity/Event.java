@@ -1,0 +1,41 @@
+package com.randoli.assignment.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+//import jakarta.persistence.TemporalType;
+//import org.springframework.data.jpa.repository.Temporal;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Entity
+
+ //to add getters and setters
+public class Event {
+    @Id
+    @Column(name = "event_id", columnDefinition = "BINARY(16)") //UUID have fixed length of 16 bytes (stores 126-bit value in binary format)
+    private UUID eventId;
+    @Column(name = "trans_id", columnDefinition = "VARCHAR(40)")
+    private String transId;
+    @Column(name = "trans_tms", columnDefinition = "TIMESTAMP") // to use time zone
+    private LocalDateTime transTms;
+    @Column(name = "re_num", columnDefinition = "VARCHAR(10)")
+    private String reNum;
+
+
+    @Column(name = "client_id", columnDefinition = "VARCHAR(15)")
+    private String clientId;
+    @Column(name = "event_cnt", columnDefinition = "INT")
+    private int eventCnt;
+    @Column(name = "location_cd", columnDefinition = "VARCHAR(15)")
+    private String locationCd;
+    @Column(name = "trans_tms", columnDefinition = "VARCHAR(10)")
+    private String locationId1;
+    @Column(name = "trans_tms", columnDefinition = "VARCHAR(10)")
+    private String locationId2;
+    @Column(name = "trans_tms", columnDefinition = "VARCHAR(15)")
+    private String addrNbr;
+
+
+}
