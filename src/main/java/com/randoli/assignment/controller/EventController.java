@@ -3,28 +3,28 @@ package com.randoli.assignment.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "api/entity")
+@RequestMapping(value = "api/event")
 @CrossOrigin
 public class EventController {
 
-    @PostMapping("/saveEntity") //Create
-    public String saveEntity(){
-        return "entity saved - Created";
+    @PostMapping("/saveEvent") //Create
+    public String saveEvent(){
+        return "event saved - Created";
     }
 
-    @GetMapping("/getEntity") //Read
-    public String getEntity(){
-        return "this is the entity - Read";
+    @GetMapping("/getEvent") //Read
+    public String getEvent(){
+        return "this is the event - Read";
     }
 
-    @PutMapping ("/updateEntity") //Update
-    public String updateEntity(){
-        return "entity updated";
+    @PutMapping ("/updateEvent") //Update
+    public String updateEvent(){
+        return "Event updated";
     }
 
-    @DeleteMapping ("/deleteEntity") //Delete
-    public String deleteEntity(){
-        return "entity deleted";
+    @DeleteMapping ("/deleteEvent") //Delete
+    public String deleteEvent(){
+        return "Event deleted";
     }
 
 
