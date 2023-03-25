@@ -5,6 +5,8 @@ import com.randoli.assignment.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "api/event")
 @CrossOrigin
@@ -17,19 +19,19 @@ public class EventController {
         return eventService.saveEvent(eventDTO);
     }
 
-    @GetMapping("/getEvent") //Read
-    public String getEvent(){
-        return "this is the event - Read";
+    @GetMapping("/getEvents") //Read
+    public List<EventDTO> getEvent(){
+        return eventService.getAllEvents();
     }
 
     @PutMapping ("/updateEvent") //Update
-    public String updateEvent(){
-        return "Event updated";
+    public EventDTO updateEvent(@RequestBody EventDTO eventDTO) {
+        return eventService.updateEvent(eventDTO);
     }
 
     @DeleteMapping ("/deleteEvent") //Delete
-    public String deleteEvent(){
-        return "Event deleted";
+    public boolean deleteEvent(@RequestBody EventDTO eventDTO){
+        return eventService.deleteEvent(eventDTO);
     }
 
 
