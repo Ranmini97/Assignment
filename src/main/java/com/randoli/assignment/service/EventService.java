@@ -16,6 +16,11 @@ import java.util.List;
 public class EventService {
     @Autowired
     private EventRepository eventRepository;
+
+    public void saveAll(List<Event> events) {
+        eventRepository.saveAll(events);
+    }
+
     @Autowired
     private ModelMapper modelMapper;
 
@@ -38,4 +43,6 @@ public class EventService {
         eventRepository.delete(modelMapper.map(eventDTO, Event.class));
         return true;
     }
+
+
 }

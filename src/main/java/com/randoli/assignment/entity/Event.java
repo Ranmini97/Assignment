@@ -1,9 +1,6 @@
 package com.randoli.assignment.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,8 +16,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @Data //to add getters and setters
 public class Event {
+
+    //(strategy = GenerationType.IDENTITY)
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "event_id", columnDefinition = "BINARY(16)") //UUID have fixed length of 16 bytes (stores 126-bit value in binary format)
     private UUID eventId;
     @Column(name = "trans_id", columnDefinition = "VARCHAR(40)")
@@ -41,6 +40,10 @@ public class Event {
     private String locationId2;
     @Column(name = "addr_nbr", columnDefinition = "VARCHAR(15)")
     private String addrNbr;
+
+
+
+
 
 
 }
