@@ -22,4 +22,7 @@ public class EventDTO {
     private String locationId1;
     private String locationId2;
     private String addrNbr;
+
+//    public EventDTO(UUID eventId, String transId, LocalDateTime transTms, String reNum, String clientId, int eventCnt, String destination, String t8C, String locationId2, String addrNbr) {
+//    }
 }

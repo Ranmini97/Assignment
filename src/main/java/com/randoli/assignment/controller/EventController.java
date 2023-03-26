@@ -63,5 +63,4 @@ public class EventController {
         return eventService.deleteEvent(eventDTO);
     }
 
-
 }

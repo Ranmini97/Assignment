@@ -17,14 +17,13 @@ import java.util.UUID;
 @Data //to add getters and setters
 public class Event {
 
-    //(strategy = GenerationType.IDENTITY)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "event_id", columnDefinition = "BINARY(16)") //UUID have fixed length of 16 bytes (stores 126-bit value in binary format)
     private UUID eventId;
     @Column(name = "trans_id", columnDefinition = "VARCHAR(40)")
     private String transId;
-    @Column(name = "trans_tms", columnDefinition = "TIMESTAMP") // to use time zone
+    @Column(name = "trans_tms", columnDefinition = "TIMESTAMP") // selected timestamp to access the time zone details
     private LocalDateTime transTms;
     @Column(name = "re_num", columnDefinition = "VARCHAR(10)")
     private String reNum;
