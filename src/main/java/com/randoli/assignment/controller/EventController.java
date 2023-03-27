@@ -22,7 +22,28 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @PostMapping("/createEvents") //Create
+    //    @PostMapping("/saveEvent") //Create an event (CRUD)
+    //    public EventDTO saveEvent(@RequestBody EventDTO eventDTO) {
+    //        return eventService.saveEvent(eventDTO);
+    //    }
+
+    @GetMapping("/getEvents") //Read event (CRUD)
+    public List<EventDTO> getEvent(){
+        return eventService.getAllEvents();
+    }
+
+    @PutMapping ("/updateEvent") //Update event (CRUD)
+    public EventDTO updateEvent(@RequestBody EventDTO eventDTO) {
+        return eventService.updateEvent(eventDTO);
+    }
+
+    @DeleteMapping ("/deleteEvent") //Delete event (CRUD)
+    public boolean deleteEvent(@RequestBody EventDTO eventDTO){
+        return eventService.deleteEvent(eventDTO);
+    }
+
+
+    @PostMapping("/createEvents") //Create events using JSON payload - new rest endpoint
     public ResponseEntity<String> createEvents(@RequestBody String payload) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(payload);
@@ -48,19 +69,6 @@ public class EventController {
         return ResponseEntity.ok("Events are saved");
     }
 
-    @GetMapping("/getEvents") //Read
-    public List<EventDTO> getEvent(){
-        return eventService.getAllEvents();
-    }
 
-    @PutMapping ("/updateEvent") //Update
-    public EventDTO updateEvent(@RequestBody EventDTO eventDTO) {
-        return eventService.updateEvent(eventDTO);
-    }
-
-    @DeleteMapping ("/deleteEvent") //Delete
-    public boolean deleteEvent(@RequestBody EventDTO eventDTO){
-        return eventService.deleteEvent(eventDTO);
-    }
 
 }

@@ -31,7 +31,7 @@ public class EventControllerTest {
     LocalDateTime dateTime = LocalDateTime.parse(dateTimeString, formatter);
 
 
-    @Test //test case for GET method (getEvent) - CRUD
+    @Test //test case for GET/READ method (getEvent) - CRUD
     public void getEventTest(){
         List<EventDTO> events = new ArrayList<>();
         events.add(new EventDTO(UUID.randomUUID(),
