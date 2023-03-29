@@ -1,3 +1,2 @@
 # Assignment
-My Assignment - Internship 
-
+My Assignment
