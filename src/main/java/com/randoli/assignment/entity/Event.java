@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Event {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO) //IDENTITY
     @Column(name = "event_id", columnDefinition = "BINARY(16)") //UUID have fixed length of 16 bytes (stores 126-bit value in binary format)
     private UUID eventId;
     @Column(name = "trans_id", columnDefinition = "VARCHAR(40)")
@@ -41,8 +41,18 @@ public class Event {
     private String addrNbr;
 
 
-
-
+//    public Event(UUID eventId, String transId, LocalDateTime transTms, String reNum, String clientId, int eventCnt, String locationCd, String locationId1, String locationId2, String addrNbr) {
+//        this.eventId = eventId;
+//        this.transId = transId;
+//        this.transTms = transTms;
+//        this.reNum = reNum;
+//        this.clientId = clientId;
+//        this.eventCnt = eventCnt;
+//        this.locationCd = locationCd;
+//        this.locationId1 = locationId1;
+//        this.locationId2 = locationId2;
+//        this.addrNbr = addrNbr;
+//    }
 
 
 }
